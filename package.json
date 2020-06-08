@@ -1,0 +1,33 @@
+{
+  "name": "eventbooking",
+  "version": "1.0.0",
+  "description": "Graphql and react",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmedmagdy11/event-booking.git"
+  },
+  "keywords": [
+    "graphql",
+    "react"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmedmagdy11/event-booking/issues"
+  },
+  "homepage": "https://github.com/ahmedmagdy11/event-booking#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
