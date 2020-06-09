@@ -1,8 +1,17 @@
+require('dotenv').config()
 const express = require("express");
 const graphQlHttp = require("express-graphql");
 const { buildSchema } = require("graphql");
+const mongoose = require('mongoose')
+const Event = require('./models/event')
 const app = express();
 
+mongoose.connect(`mongodb+srv:
+//Ahmed:${process.env.MongoDB_PASS}@cluster0-nc5qf
+.mongodb.net/${process.env.event_bookingDB}
+?retryWrites=true&w=majority`,()=>{
+    console.log("connection established")
+})
 let events = [];
 
 app.use(
