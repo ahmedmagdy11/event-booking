@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
 const EvenShcema = new mongoose.Schema({
-  name :{
-      type:String,
-      required:true
+  name: {
+    type: String,
+    required: true,
   },
   title: {
     type: String,
@@ -21,8 +21,13 @@ const EvenShcema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  creator: {
+    type: mongoose.SchemaTypes.ObjectId,
+    ref: "user",
+    required:true
+  },
 });
 
-const Event = mongoose.model('event',EvenShcema)
+const Event = mongoose.model("event", EvenShcema);
 
-module.exports = Event 
+module.exports = Event;
