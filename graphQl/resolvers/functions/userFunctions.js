@@ -1,6 +1,6 @@
 const User = require("../../../models/user");
 const bcrypt = require("bcrypt");
-
+const jwt = require("jsonwebtoken");
 const createUser = async (args) => {
   args = args.userData;
   console.log(args);
@@ -20,4 +20,28 @@ const createUser = async (args) => {
   }
 };
 
-module.exports = createUser;
+const login = async (args) => {
+  try {
+    const doc = await User.findOne({ email: args.email }).exec();
+    if (!doc) {
+      throw new Error(`User Doesn't exist`);
+    }
+    const compare = await bcrypt.compare(args.password, doc.password);
+    if (!compare) {
+      throw new Error(`password is incorrect`);
+    }
+    const token = jwt.sign({ userID: doc._id }, process.env.SECRET_TOKEN, {
+      expiresIn: "1000s",
+    });
+
+    return {
+      userID: doc._id,
+      token: token,
+      expirationDate: 1000,
+    };
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+module.exports = { createUser: createUser, login: login };

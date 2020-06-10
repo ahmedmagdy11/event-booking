@@ -1,5 +1,5 @@
 const { events, createEvents } = require("./functions/eventFunctions");
-const createUser = require("./functions/userFunctions");
+const {createUser , login} = require("./functions/userFunctions");
 const { Bookings, createBooking } = require("./functions/BookingFunctions");
 
 const resolver = {
@@ -9,5 +9,6 @@ const resolver = {
   createUser: createUser,
   Booking: Bookings,
   createBooking: createBooking,
+  login :login
 };
 module.exports = resolver;

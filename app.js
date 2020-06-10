@@ -3,6 +3,7 @@ const express = require("express");
 const graphQlHttp = require("express-graphql");
 const GQSchema = require("./graphQl/schema")
 const resolver = require("./graphQl/resolvers/resolvers")
+const AuthMW = require("./graphQl/middleware/Auth")
 const mongoose = require("mongoose");
 const app = express();
 
@@ -18,7 +19,7 @@ const app = express();
 //     console.log("connection established");
 //   }
 // );
-
+app.use(AuthMW)
 app.use(
   "/graphql",
   graphQlHttp({

@@ -3,11 +3,18 @@ const User = require("../../../models/user");
 const Booking = require("../../../models/booking");
 
 
-const Bookings = async () => {
+const Bookings = async (args,req) => {
+    if (req.isAuth==false){
+      throw new Error(`not Authroized`)
+    }
     return await Booking.find().exec();
   }
 
-const createBooking = async (args) => {
+const createBooking = async (args,req) => {
+    if (req.isAuth == false){
+      throw new Error(`not Authrorized`);
+    }
+    
     args = args.arguments;
     try {
       const BookingData = {

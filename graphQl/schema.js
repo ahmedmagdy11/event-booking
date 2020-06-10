@@ -36,10 +36,16 @@ type Booking {
     createdAt:String
     updatedAt:String
 }
+type AuthData { 
+    userID:ID!
+    token:String!
+    expirationDate:Int!
+}
 type RootQuery {
     events : [Event!]!
     User : [User!]!
     Booking :[Booking!]!
+    login(email:String! , password:String! ):AuthData
 }
 type RootMutation{
     createEvent(arguments:eventInput):Event  
