@@ -21,11 +21,11 @@ const createEvents = async (args) => {
       title: args.title,
       description: args.description,
       price: +args.price,
-      date: new Date().toISOString(),
+      date: new Date(args.date),
   
     };
     try {
-      const userDoc = await User.findOne({email:args.email}).exec()
+      const userDoc = await User.findById(args.userID).exec()
       if (userDoc==null){
         throw new Error("user not Found");
         

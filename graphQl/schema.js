@@ -14,7 +14,8 @@ input eventInput{
     title : String! 
     description: String!
     price : Float!
-    email: String!
+    date : String!
+    userID: ID!
 }
 type User{
   username: String!

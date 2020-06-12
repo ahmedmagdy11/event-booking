@@ -12,6 +12,7 @@ const useFetch = (url) => {
                           description
                           date
                           title
+                          price
                           creator{
                             username
                             email

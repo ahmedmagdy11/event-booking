@@ -9,10 +9,17 @@ const Events =()=> {
   
   return (
    <React.Fragment>
-      <button  >Resfresh</button> 
        <ul>
             {data ? data.map((D)=>{
-                return <li key={D._id}>{D.title}</li>
+                return <li key={D._id}>
+                    title : {D.title} <br/>
+                    description : {D.description}<br/>
+                    data : {D.date} <br />
+                    price : {D.price}<br/>
+                    <div >
+                        creator : {D.creator.username}
+                    </div>
+                </li>
             }): "hello"}
           </ul>
       </React.Fragment>

@@ -1,22 +1,25 @@
-import React, { useContext } from 'react'
-import AuthContext from "../context/authContext"
-import LoadEvents from "../componenets/allEvents"
+import React, { useContext } from "react";
+import AuthContext from "../context/authContext";
+import LoadEvents from "../componenets/allEvents";
+import CreateEvent from "../componenets/createEvent/createEvent"
 const Events = () => {
-    const { authData, setAuthData } = useContext(AuthContext);
-    console.log(authData)
-    
-    if (authData.token){
-        return (<React.Fragment>
-            <LoadEvents />
-            <h1> {JSON.stringify(authData,null,2)} </h1>
-            
-            </React.Fragment>)
-    }
-    return (<React.Fragment>
-        <LoadEvents />
-        <h1> not Authorized </h1>
-        
-        </React.Fragment>)
-}
+  const { authData, setAuthData } = useContext(AuthContext);
+  console.log(authData);
 
-export default Events
+  if (authData.token) {
+    return (
+      <React.Fragment>
+          <CreateEvent />
+        <LoadEvents />
+        
+      </React.Fragment>
+    );
+  }
+  return (
+    <React.Fragment>
+      <LoadEvents />
+    </React.Fragment>
+  );
+};
+
+export default Events;

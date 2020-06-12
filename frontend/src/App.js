@@ -10,7 +10,7 @@ import "./App.css";
 import Auth from "./pages/auth";
 import Events from "./pages/events";
 import Bookings from "./pages/Bookings";
-import MainNav from "./componenets/Navbar";
+import MainNav from "./componenets/navBar/Navbar";
 import AuthContext from "./context/authContext";
 
 function App() {
