@@ -28,7 +28,7 @@ const LoginForm = () => {
       });
       console.log(response.status);
       const FinalResponse = await response.json();
-      if (response.status == 200) {
+      if (response.ok) {
         if (FinalResponse.errors) {
           loginError.current.innerHTML = "something Went Wrong";
         } else if (FinalResponse.data) {
@@ -38,13 +38,14 @@ const LoginForm = () => {
                     userID : FinalResponse.data.login.userID
                 }
             })
-          loginError.current.innerHTML = "logged in successfully";
+         // loginError.current.innerHTML = "logged in successfully";
         }
       } else {
         loginError.current.innerHTML = "something Went Wrong";
       }
     } catch (err) {
-      loginError.current.innerHTML = String(err);
+      console.log(err)
+      
     }
   };
   return (

@@ -1,12 +1,8 @@
-import React, { Component ,useContext} from "react";
-import AuthContext from "../context/authContext"
+import React from "react";
 import CreateUserForm from "../componenets/createUserForm"
 import LoginForm from "../componenets/loginForm"
 
 const Auth =()=>{
-
- 
-    // const [authData , setAuthData] = useContext(AuthContext);
     
 
     return (

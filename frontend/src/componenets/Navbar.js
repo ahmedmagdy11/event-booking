@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {NavLink} from 'react-router-dom'
 
-
+import AuthContext from "../context/authContext"
 const MainNav =(props)=>{
-
+    const {authData ,setAuthData } = useContext(AuthContext)
+    const logout=()=>{
+        setAuthData({
+            token:null,
+            userID:null
+        })
+    }
     return(
 
         <header>
@@ -21,6 +27,9 @@ const MainNav =(props)=>{
                     <li>
                         <NavLink to="/Bookings">Bookings</NavLink>
                     </li>
+                   { authData.token && (<li>
+                        <button onClick={logout}>logout</button>
+                    </li>)}
                 </ul>
             </nav>
         </header>

@@ -27,16 +27,19 @@ function App() {
         <AuthContext.Provider value={{authData, setAuthData}}>
           <MainNav></MainNav>
           <Switch>
-            <Redirect from="/" to="/auth" exact />
-            <Route path="/auth">
+           {!authData.token &&(<Redirect from="/" to="/auth" exact />)}
+           { !authData.token && (<Route path="/auth">
               <Auth></Auth>
-            </Route>
-            <Route path="/Bookings">
+            </Route>)}
+            {authData.token && (<Redirect from="/auth" to="/events"/>)}
+           <Route path="/Bookings">
               <Bookings></Bookings>
-            </Route>
-            <Route path="/events">
+            </Route>)
+
+            (<Route path="/events">
               <Events></Events>
-            </Route>
+            </Route>)
+
           </Switch>
         </AuthContext.Provider>
       </BrowserRouter>

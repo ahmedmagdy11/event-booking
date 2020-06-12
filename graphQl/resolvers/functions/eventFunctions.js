@@ -8,7 +8,7 @@ const events = async () => {
       console.log(err)
       throw new Error(err)
     }
-
+    
   }
 
 

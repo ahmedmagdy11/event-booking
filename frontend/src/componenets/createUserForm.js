@@ -1,15 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useRef} from "react";
 
-const LoadError = (props) => {
-  const Error = props.Error;
-  if (Error) {
-    return <p style="color:red;">Something went Wrong</p>;
-  } else if (Error === false) {
-    return <p>user created succesfully </p>;
-  } else {
-    return <p></p>;
-  }
-};
 const CreateUser = () => {
   const email = useRef();
   const password = useRef();
@@ -40,7 +30,7 @@ const CreateUser = () => {
         },
       });
       console.log(response.status);
-      if (response.status == 200) {
+      if (response.ok) {
         const finalRes = await response.json();
         console.log(finalRes);
         if (finalRes.errors) {
