@@ -1,11 +1,11 @@
-.event-list{
+.booking-list{
     list-style: none;
     text-align: left;
     
 }
 
 
-.event-list li {
+.booking-list li {
     width: 50%;
     background-color:gray;
     color:black;
@@ -18,19 +18,20 @@
     font-family: 'Times New Roman', Times, serif;
 }
 
-.event-list li:hover {
+.booking-list li:hover {
     
     background-color:black;
     color:Gold;
    
 }
-li button{
-    background-color: green;
-    color: white;
+
+.ele button{
+    background-color: crimson;
     width: 40%;
-    height: 40px;
+    height:40px;
+    color: white;
     font-size: larger;
+    font-family: sans-serif;
     float: right;
-    border: green;
-    border-radius: 4px;
+    border-radius: 3px;
 }

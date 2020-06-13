@@ -1,5 +1,5 @@
 import React, { useRef} from "react";
-
+import "../createUserForm/createUserForm.css"
 const CreateUser = () => {
   const email = useRef();
   const password = useRef();
@@ -49,7 +49,7 @@ const CreateUser = () => {
   };
 
   return (
-    <form onSubmit={fromSubmit}>
+    <form className="create-form" onSubmit={fromSubmit}>
       <input
         type="text"
         id="username"

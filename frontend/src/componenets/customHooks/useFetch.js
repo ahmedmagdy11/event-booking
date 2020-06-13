@@ -23,6 +23,7 @@ const useFetch = (url,query) => {
             }
         }
         f();
+        
     },[url])
     console.log(data)
     return data

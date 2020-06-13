@@ -1,38 +1,55 @@
 const Event = require("../../../models/event");
 const User = require("../../../models/user");
 const Booking = require("../../../models/booking");
+const { findByIdAndDelete } = require("../../../models/event");
+const ObjectId= require('mongoose').Types.ObjectId
+const Bookings = async (args, req) => {
+  // if (req.isAuth == false) {
+  //   throw new Error(`not Authroized`);
+  // }
+  console.log("i am here ");
+  const doc = await Booking.find({ userID: args.userID })
+    .populate("eventID")
+    .exec();
 
+  return doc;
+};
 
-const Bookings = async (args,req) => {
-
-    if (req.isAuth==false){
-      throw new Error(`not Authroized`)
-    }
-    console.log("i am here ")
-    const doc = await Booking.find({userID : args.userID}).populate('eventID').exec();
-    
-    return doc;
+const createBooking = async (args, req) => {
+  if (req.isAuth == false) {
+    throw new Error(`not Authrorized`);
   }
 
-const createBooking = async (args,req) => {
-    if (req.isAuth == false){
-      throw new Error(`not Authrorized`);
-    }
-    
-    args = args.arguments;
-    try {
-      const BookingData = {
-        userID: (await User.findById(args.userID).exec())._id,
-        eventID: (await Event.findById(args.eventID).exec())._id,
-      };
+  args = args.arguments;
+  try {
+    const BookingData = {
+      userID: (await User.findById(args.userID).exec())._id,
+      eventID: (await Event.findById(args.eventID).exec())._id,
+    };
 
-      const BookingEvent = await Booking.create(BookingData);
-      console.log(BookingEvent);
-      BookingEvent.createdAt = new Date(BookingEvent.createdAt).toISOString();
-      return BookingEvent;
-    } catch (err) {
-      throw new Error(err);
-    }
+    const BookingEvent = await Booking.create(BookingData);
+    console.log(BookingEvent);
+    BookingEvent.createdAt = new Date(BookingEvent.createdAt).toISOString();
+    return BookingEvent;
+  } catch (err) {
+    throw new Error(err);
   }
+};
 
-module.exports = {Bookings : Bookings , createBooking : createBooking}
+const cancelBooking = async (args) => {
+  try {
+   // console.log(await Booking.findById(args.bookingID).exec());
+    console.log(args.bookingID)
+    const doc = await Booking.findByIdAndDelete( args.bookingID).exec();
+    console.log(doc)
+    return doc
+  } catch (err) {
+    console.log(err);
+    throw new Error(err);
+  }
+};
+module.exports = {
+  Bookings: Bookings,
+  createBooking: createBooking,
+  cancelBooking: cancelBooking,
+};

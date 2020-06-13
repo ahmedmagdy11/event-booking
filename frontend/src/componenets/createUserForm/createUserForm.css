@@ -1,4 +1,4 @@
-.login-form input, select {
+.create-form input, select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -8,9 +8,9 @@
     box-sizing: border-box;
   }
   
- .login-form button[type=submit] {
+ .create-form button[type=submit] {
     width: 100%;
-    background-color: brown;
+    background-color:green ;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -18,9 +18,9 @@
     border-radius: 4px;
     cursor: pointer;
   }
-  .login-form button[type=button] {
+  .create-form button[type=button] {
     width: 100%;
-    background-color: rgb(206, 61, 61);
+    background-color:green;
     color:white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -29,17 +29,17 @@
     cursor: pointer;
   }
   
-  .login-form input:hover {
-    background-color: gold;
+  .create-form input:hover {
+    background-color:green;
   }
-  .login-form {
+  .create-form {
     width: 50%;
-    display: inline-block;
     
-    border-radius: 5px;
-    border-color: crimson;
+    border-radius: 10px;
+    border-color: black;
     border-style: solid;
-    background-color: black;
+    background-color: white;
     padding: 20px;
+    display: inline-block;
   }
   

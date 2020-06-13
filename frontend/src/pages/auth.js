@@ -1,5 +1,5 @@
 import React from "react";
-import CreateUserForm from "../componenets/createUserForm"
+import CreateUserForm from "../componenets/createUserForm/createUserForm"
 import LoginForm from "../componenets/loginForm/loginForm"
 
 const Auth =()=>{

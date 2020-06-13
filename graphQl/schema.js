@@ -54,6 +54,7 @@ type RootMutation{
     createEvent(arguments:eventInput):Event  
     createUser(userData:UserInput):User
     createBooking(arguments:BookingInput):Booking
+    cancelBooking(bookingID:ID!):Booking
 }
 schema {
     query: RootQuery
