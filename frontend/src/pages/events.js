@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/authContext";
-import LoadEvents from "../componenets/allEvents/allEvents";
+
+import LoadEvents from "../componenets/allEvents/allEvents"
 import CreateEvent from "../componenets/createEvent/createEvent"
 const Events = () => {
   const { authData, setAuthData } = useContext(AuthContext);

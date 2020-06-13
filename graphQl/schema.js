@@ -28,7 +28,7 @@ input UserInput {
 }
 
 input BookingInput {
-    email:String!
+    userID:ID!
     eventID:String!
 }
 type Booking {

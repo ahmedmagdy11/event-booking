@@ -18,7 +18,7 @@ const createBooking = async (args,req) => {
     args = args.arguments;
     try {
       const BookingData = {
-        userID: (await User.findOne({ email: args.email }).exec())._id,
+        userID: (await User.findById(args.userID).exec())._id,
         eventID: (await Event.findById(args.eventID).exec())._id,
       };
 

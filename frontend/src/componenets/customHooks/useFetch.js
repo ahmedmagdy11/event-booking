@@ -1,7 +1,8 @@
 import { useState, useEffect, useDebugValue } from 'react'
-
+    
 
 const useFetch = (url) => {
+    
     const [data, setData] = useState({ data: null, loading: true });
     useEffect(() => {
         const f = async () => {
@@ -30,7 +31,6 @@ const useFetch = (url) => {
             });
             if (response.ok){
                 const resData = await response.json();
-                console.log(resData)
                 setData({data :resData.data.events , loading:false})
                
             }
