@@ -32,10 +32,12 @@ input BookingInput {
     eventID:String!
 }
 type Booking {
+    _id:ID!
     userID:ID!
-    eventID:ID!
+    eventID:Event!
     createdAt:String
     updatedAt:String
+
 }
 type AuthData { 
     userID:ID!
@@ -45,7 +47,7 @@ type AuthData {
 type RootQuery {
     events : [Event!]!
     User : [User!]!
-    Booking :[Booking!]!
+    Booking(userID : ID!) :[Booking!]!
     login(email:String! , password:String! ):AuthData
 }
 type RootMutation{

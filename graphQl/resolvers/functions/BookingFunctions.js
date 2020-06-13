@@ -4,10 +4,14 @@ const Booking = require("../../../models/booking");
 
 
 const Bookings = async (args,req) => {
+
     if (req.isAuth==false){
       throw new Error(`not Authroized`)
     }
-    return await Booking.find().exec();
+    console.log("i am here ")
+    const doc = await Booking.find({userID : args.userID}).populate('eventID').exec();
+    
+    return doc;
   }
 
 const createBooking = async (args,req) => {

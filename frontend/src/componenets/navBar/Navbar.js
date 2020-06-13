@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import AuthContext from "../../context/authContext";
-import navBar from "../navBar/navBar.css";
+import "../navBar/navBar.css";
 const MainNav = (props) => {
   const { authData, setAuthData } = useContext(AuthContext);
   const logout = () => {

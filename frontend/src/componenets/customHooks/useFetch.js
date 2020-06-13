@@ -1,37 +1,24 @@
-import { useState, useEffect, useDebugValue } from 'react'
+import { useState, useEffect, useContext } from 'react'
     
-
-const useFetch = (url) => {
-    
+import AuthContext from "../../context/authContext"
+const useFetch = (url,query) => {
+    const {authData , setAuthData} = useContext(AuthContext);
     const [data, setData] = useState({ data: null, loading: true });
     useEffect(() => {
         const f = async () => {
-            const query = {
-                query: `query{
-                        events{
-                          _id
-                          description
-                          date
-                          title
-                          price
-                          creator{
-                            username
-                            email
-                          }
-                        }
-                      }
-                    `,
-            };
+    
             const response = await fetch(url, {
                 method: "POST",
                 headers: {
-                    'content-type': 'application/json'
+                    'content-type': 'application/json',
+                    'Authorization' : `Bearer ${authData.token}`
                 },
                 body: JSON.stringify(query)
             });
             if (response.ok){
                 const resData = await response.json();
-                setData({data :resData.data.events , loading:false})
+                console.log("resdata ", resData)
+                setData({data :resData , loading:false})
                
             }
         }
