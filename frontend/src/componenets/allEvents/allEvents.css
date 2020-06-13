@@ -1,0 +1,26 @@
+.event-list{
+    list-style: none;
+    text-align: left;
+    
+}
+
+
+.event-list li {
+    width: 50%;
+    background-color:gray;
+    color:black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.event-list li:hover {
+
+    background-color:black;
+    color:Gold;
+   
+}

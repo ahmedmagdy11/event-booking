@@ -1,0 +1,43 @@
+.login-form input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+ .login-form button[type=submit] {
+    width: 100%;
+    background-color: brown;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  .login-form button[type=button] {
+    width: 100%;
+    background-color: rgb(206, 61, 61);
+    color:white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .login-form input:hover {
+    background-color: gold;
+  }
+  .login-form {
+    width: 50%;
+    
+    float: right;
+    border-radius: 5px;
+    background-color: black;
+    padding: 20px;
+  }
+  

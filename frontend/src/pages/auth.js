@@ -1,6 +1,6 @@
 import React from "react";
 import CreateUserForm from "../componenets/createUserForm"
-import LoginForm from "../componenets/loginForm"
+import LoginForm from "../componenets/loginForm/loginForm"
 
 const Auth =()=>{
     

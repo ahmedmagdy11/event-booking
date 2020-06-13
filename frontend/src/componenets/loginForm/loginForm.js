@@ -1,6 +1,7 @@
 import React, { useRef , useContext} from "react";
 
-import AuthContext from "../context/authContext"
+import AuthContext from "../../context/authContext"
+import "../loginForm/loginForm.css"
 const LoginForm = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -49,7 +50,7 @@ const LoginForm = () => {
     }
   };
   return (
-    <form onSubmit={FormLogin}>
+    <form className="login-form" onSubmit={FormLogin}>
       <br></br>
       <input
         type="email"

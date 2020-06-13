@@ -56,9 +56,12 @@ const CreateEvent = () => {
 
   return (
     <React.Fragment>
-      <button onClick={ShowForm} ref={createEventRef}>
+      <div className="CreateButton"> <button onClick={ShowForm} ref={createEventRef}>
+
         Create Event
       </button>
+      </div>
+     
       <form style={{ display: "none" }} onSubmit={Submission} className="form-control" ref={formRef}>
         <label htmlFor="name">name</label>
         <input type="text" name="name" ref={nameRef} required />
