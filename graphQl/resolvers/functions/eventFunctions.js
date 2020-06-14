@@ -17,7 +17,6 @@ const createEvents = async (args) => {
 
    
     const arg_events = {
-      name: args.name,
       title: args.title,
       description: args.description,
       price: +args.price,

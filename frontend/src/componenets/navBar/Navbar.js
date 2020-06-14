@@ -17,13 +17,17 @@ const MainNav = (props) => {
         <h1>Event Booking app</h1>
       </div>
       <nav>
-        <NavLink to="/auth">Authentication</NavLink>
+        {!authData.token && <NavLink to="/auth">Authentication</NavLink>}
 
         <NavLink to="/events">Events</NavLink>
 
-        <NavLink to="/Bookings">Bookings</NavLink>
-
-        {authData.token && <button onClick={logout}>logout</button>}
+        {authData.token && (
+          <React.Fragment>
+            {" "}
+            <NavLink to="/Bookings">Bookings</NavLink>
+            <button onClick={logout}>logout</button>{" "}
+          </React.Fragment>
+        )}
       </nav>
     </header>
   );

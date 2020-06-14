@@ -1,7 +1,7 @@
 import { useState, useEffect, useContext } from 'react'
     
 import AuthContext from "../../context/authContext"
-const useFetch = (url,query) => {
+const useFetch = (url,query,created) => {
     const {authData , setAuthData} = useContext(AuthContext);
     const [data, setData] = useState({ data: null, loading: true });
     useEffect(() => {
@@ -24,7 +24,7 @@ const useFetch = (url,query) => {
         }
         f();
         
-    },[url])
+    },[url,created])
     console.log(data)
     return data
 }

@@ -1,13 +1,11 @@
 import React, { createRef, useContext } from "react";
-
-import FormStyle from "../createEvent/createEvent.css";
+import "../createEvent/createEvent.css";
 import AuthContext from "../../context/authContext";
-const CreateEvent = () => {
+const CreateEvent = (props) => {
   const { authData, setAuthData } = useContext(AuthContext);
   console.log("Auth Data ",authData)
   const formRef = createRef();
   const createEventRef = createRef();
-  const nameRef = createRef();
   const titleRef = createRef();
   const descriptionRef = createRef();
   const priceRef = createRef();
@@ -26,10 +24,10 @@ const CreateEvent = () => {
     event.preventDefault();
     const Query = {
       query: `mutation{
-        createEvent(arguments:{name:"${nameRef.current.value}"
-        ,title:"${titleRef.current.value}",description:"${descriptionRef.current.value}"
+        createEvent(arguments:{title:"${titleRef.current.value}"
+        ,description:"${descriptionRef.current.value}"
         ,price:${priceRef.current.value},userID:"${authData.userID}"
-          date:"${dateRef.current.vale}"}){
+          date:"${dateRef.current.value}"}){
          _id
           title
         }
@@ -51,6 +49,7 @@ const CreateEvent = () => {
 
         formRef.current.style.display="none";
         createEventRef.current.style.display = "block";
+        props.updateCreated();
     }
   };
 
@@ -63,8 +62,6 @@ const CreateEvent = () => {
       </div>
      
       <form style={{ display: "none" }} onSubmit={Submission} className="form-control" ref={formRef}>
-        <label htmlFor="name">name</label>
-        <input type="text" name="name" ref={nameRef} required />
 
         <label htmlFor="title">title</label>
         <input type="text" name="title" ref={titleRef} required />

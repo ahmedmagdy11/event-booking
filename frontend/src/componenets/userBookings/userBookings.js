@@ -35,7 +35,7 @@ const UserBookings =()=>{
     const [Bookings , setBookings] = useState([])
     const cancelBooking=async(e)=>{
        const BookingID = e.target.id;
-        
+       
        const Query = {
            query:`mutation{
             cancelBooking(bookingID:"${BookingID}"){

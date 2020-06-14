@@ -10,7 +10,6 @@ type Event {
     creator:User!
 }
 input eventInput{
-    name:String!
     title : String! 
     description: String!
     price : Float!
