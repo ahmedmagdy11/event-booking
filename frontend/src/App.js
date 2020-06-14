@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
 import {
   Switch,
   Route,
@@ -19,7 +19,18 @@ function App() {
     token:null,
     userID : null,
   })
-
+  const exists = localStorage.getItem('token')!=null
+  useEffect(()=>{
+    if (localStorage.getItem('token')!=null){
+      setAuthData(()=>{
+        return {
+          token:localStorage.getItem('token'),
+          userID:localStorage.getItem('userID')
+        }
+      })
+    }
+  },[exists])
+ 
  
   return (
     <div>

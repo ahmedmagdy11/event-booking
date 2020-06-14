@@ -39,6 +39,8 @@ const LoginForm = () => {
                     userID : FinalResponse.data.login.userID
                 }
             })
+            localStorage.setItem('token',FinalResponse.data.login.token);
+            localStorage.setItem('userID',FinalResponse.data.login.userID)
          // loginError.current.innerHTML = "logged in successfully";
         }
       } else {

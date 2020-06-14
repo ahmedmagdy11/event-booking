@@ -1,5 +1,5 @@
-import React, { useRef} from "react";
-import "../createUserForm/createUserForm.css"
+import React, { useRef } from "react";
+import "../createUserForm/createUserForm.css";
 const CreateUser = () => {
   const email = useRef();
   const password = useRef();
@@ -57,7 +57,11 @@ const CreateUser = () => {
         required
         ref={username}
       />
+
       <br></br>
+      <input type="email" id="email" placeholder="email" required ref={email} />
+      <br></br>
+
       <input
         type="password"
         id="passwprd"
@@ -65,10 +69,6 @@ const CreateUser = () => {
         required
         ref={password}
       />
-      <br></br>
-      <input type="email" id="email" placeholder="email" required ref={email} />
-      <br></br>
-
       <p ref={noErrorRef}> </p>
       <p ref={ErrorRef}></p>
       <button type="submit">create user</button>

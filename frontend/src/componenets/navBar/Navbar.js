@@ -10,6 +10,8 @@ const MainNav = (props) => {
       token: null,
       userID: null,
     });
+    localStorage.removeItem('token');
+    localStorage.removeItem('userID');
   };
   return (
     <header className="topnav">
