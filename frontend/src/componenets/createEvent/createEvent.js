@@ -70,7 +70,7 @@ const CreateEvent = (props) => {
         <input type="text" name="description" ref={descriptionRef} required />
 
         <label htmlFor="price">price</label>
-        <input type="number" name="price" ref={priceRef} required />
+        <input type="number" name="price" step="0.1" ref={priceRef} required />
 
         <label htmlFor="date">date</label>
         <input type="date" name="date" ref={dateRef} required />

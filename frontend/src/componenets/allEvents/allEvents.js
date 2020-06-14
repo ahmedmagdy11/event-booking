@@ -105,7 +105,7 @@ const Events = (props) => {
                 description : {D.description}
                 <br />
                 data : {D.date} <br />
-                price : {D.price}
+                price : {D.price}$
                 <br />
                 <div>creator : {D.creator.username}</div>
                 </div>

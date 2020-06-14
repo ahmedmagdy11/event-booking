@@ -3,9 +3,9 @@ const User = require("../../../models/user");
 const Booking = require("../../../models/booking");
 
 const Bookings = async (args, req) => {
-  // if (req.isAuth == false) {
-  //   throw new Error(`not Authroized`);
-  // }
+  if (req.isAuth == false) {
+    throw new Error(`not Authroized`);
+  }
    
   const doc = await Booking.find({userID:args.userID}).populate('eventID').exec();
  
@@ -39,7 +39,10 @@ const createBooking = async (args, req) => {
   }
 };
 
-const cancelBooking = async (args) => {
+const cancelBooking = async (args,req) => {
+  if (req.isAuth == false) {
+    throw new Error(`not Authrorized`);
+  }
   try {
    // console.log(await Booking.findById(args.bookingID).exec());
     console.log(args.bookingID)

@@ -17,7 +17,6 @@ const useFetch = (url,query,created) => {
             });
             if (response.ok){
                 const resData = await response.json();
-                console.log("resdata ", resData)
                 setData({data :resData , loading:false})
                
             }

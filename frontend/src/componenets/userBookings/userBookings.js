@@ -46,18 +46,19 @@ const UserBookings =()=>{
        const response = await fetch(url,{
            method:'POST',
            headers:{
-               'content-type':'application/json'
+               'content-type':'application/json',
+               'Authorization':`Bearer ${authData.token}`
            },
            body:JSON.stringify(Query)
        })
        if (response.ok){
-          
+          console.log(`cancel response ${JSON.stringify(await response.json())}`)
           setBookings((newBookings)=>{
               console.log(newBookings)
               console.log(newBookings.filter(D=> D._id !=BookingID))
               return newBookings.filter(D=> D._id !=BookingID)
           })
-          
+            
        }
     }
     return (
